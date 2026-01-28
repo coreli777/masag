@@ -683,41 +683,52 @@
                 
                         <label for="message">Сообщение</label>
                         <textarea id="message" name="message" placeholder="Расскажите о своих пожеланиях..."></textarea>
-                    </div>
-                    <form action="https://formsubmit.co/andceban@gmail.com" method="POST">
-                        <input type="hidden" name="_next" value="https://coreli777.github.io/masag/">
-                        <input type="text" name="name" required>
-                        <input type="email" name="email" required><button type="submit">Send</button>
+                <form action="https://formsubmit.co/andceban@gmail.com" method="POST">
 
-                    <div class="form-group">
-                        <label for="phone">Телефон *</label>
-                        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
-                    </div>
-                    <input type="hidden" name="_subject" value="Новая заявка с сайта">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
+        <!-- настройки FormSubmit -->
+            <input type="hidden" name="_next" value="https://coreli777.github.io/masag/">
+        <input type="hidden" name="_subject" value="Новая заявка с сайта">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com">
-                    </div>
+    <!-- имя -->
+        <div class="form-group">
+        <label for="name">Ваше имя *</label>
+        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+         </div>
 
-                    <div class="form-group">
-                        <label for="service">Интересующая услуга</label>
-                        <select id="service" name="service">
-                            <option value="">Выберите услугу</option>
-                            <option value="Лечебный массаж">Лечебный массаж</option>
-                            <option value="Расслабляющий массаж">Расслабляющий массаж</option>
-                            <option value="Спортивный массаж">Спортивный массаж</option>
-                            <option value="Мануальный лимфодренаж">Мануальный лимфодренаж</option>
-                            <option value="Антицеллюлитный массаж">Антицеллюлитный массаж</option>
-                            <option value="Массаж лица">Массаж лица</option>
-                        </select>
-                    </div>
+    <!-- телефон -->
+        <div class="form-group">
+        <label for="phone">Телефон *</label>
+        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+        </div>
 
-                    <div class="form-group">
-                    <button type="submit" class="submit-btn">Отправить заявку</button>
-                </form>
+    <!-- email -->
+        <div class="form-group">
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required placeholder="your@email.com">
+        </div>
+
+    <!-- услуга -->
+         <div class="form-group">
+        <label for="service">Интересующая услуга</label>
+        <select id="service" name="service">
+            <option value="">Выберите услугу</option>
+            <option value="Лечебный массаж">Лечебный массаж</option>
+            <option value="Расслабляющий массаж">Расслабляющий массаж</option>
+            <option value="Спортивный массаж">Спортивный массаж</option>
+            <option value="Мануальный лимфодренаж">Мануальный лимфодренаж</option>
+            <option value="Антицеллюлитный массаж">Антицеллюлитный массаж</option>
+            <option value="Массаж лица">Массаж лица</option>
+        </select>
+    </div>
+
+    <!-- одна кнопка -->
+    <button type="submit" class="submit-btn">Отправить заявку</button>
+
+</form>
+    </div>
+                   
 
                 <div class="contact-methods">
                     <h3>Или свяжитесь другим способом:</h3>
