@@ -557,19 +557,17 @@
 }
 
 .massage-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+    display: none;
     background: #ffffff;
     border-radius: 0 0 12px 12px;
     margin-top: -10px;
-    padding: 0 18px;
-}
-
-.massage-content p {
-    padding: 14px 0;
+    padding: 15px 18px;
     color: #444;
     line-height: 1.6;
+}
+
+.massage-content.active {
+    display: block;
 }
 
     </style>
@@ -990,17 +988,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-document.querySelectorAll('.massage-title').forEach(button => {
-    button.addEventListener('click', () => {
-        const content = button.nextElementSibling;
 
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-        } else {
-            content.style.maxHeight = content.scrollHeight + "px";
-        }
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.massage-title').forEach(button => {
+        button.addEventListener('click', function () {
+            const content = button.nextElementSibling;
+            if (!content) return;
+            content.classList.toggle('active');
+        });
     });
 });
+
 
 
 </script>
