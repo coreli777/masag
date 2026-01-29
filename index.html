@@ -727,6 +727,7 @@
     <button type="submit" class="submit-btn">Отправить заявку</button>
 
 </form>
+<p id="formMessage" style="display:none;"></p>
 
     </div>
                    
@@ -827,12 +828,12 @@
             });
         });
     </script>
-    <script>
+   <script>
 const form = document.getElementById('contactForm');
 const message = document.getElementById('formMessage');
 
 form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // ❌ отменяем перезагрузку страницы
+    e.preventDefault(); // не перезагружаем страницу
 
     const formData = new FormData(form);
 
@@ -847,15 +848,22 @@ form.addEventListener('submit', async function (e) {
 
         if (response.ok) {
             message.style.display = 'block';
+            message.textContent = '✅ Спасибо! Заявка отправлена.';
             form.reset();
         } else {
-            alert('❌ Ошибка отправки. Попробуйте позже.');
+            message.style.display = 'block';
+            message.style.color = 'red';
+            message.textContent = '❌ Ошибка отправки. Попробуйте позже.';
         }
     } catch (error) {
-        alert('❌ Ошибка соединения.');
+        message.style.display = 'block';
+        message.style.color = 'red';
+        message.textContent = '❌ Ошибка соединения.';
+        console.error(error);
     }
 });
 </script>
+
 
 </body>
 </html>
