@@ -681,29 +681,42 @@
             </div>
             <div class="modal-body">
                 
-        <form id="contactForm">
-        <input type="text" name="name" required>
-        <input type="email" name="email" required>
-        <button type="submit">Отправить</button>
-
-
+       <form id="contactForm">
 
     <!-- Имя -->
     <div class="form-group">
         <label for="name">Ваше имя *</label>
-        <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+        <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Введите ваше имя"
+        >
     </div>
 
     <!-- Телефон -->
     <div class="form-group">
         <label for="phone">Телефон *</label>
-        <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
+        <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            placeholder="+1 (555) 123-4567"
+        >
     </div>
 
     <!-- Email -->
     <div class="form-group">
         <label for="email">Email *</label>
-        <input type="email" id="email" name="email" required placeholder="your@email.com">
+        <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="your@email.com"
+        >
     </div>
 
     <!-- Услуга -->
@@ -720,14 +733,16 @@
         </select>
     </div>
 
-    <!-- Редирект после отправки -->
-    <input type="hidden" name="_next" value="https://coreli777.github.io/masag/">
-
     <!-- Кнопка -->
-    <button type="submit" class="submit-btn">Отправить заявку</button>
+    <button type="submit" class="submit-btn">
+        Отправить заявку
+    </button>
 
 </form>
-<p id="formMessage" style="display:none;"></p>
+
+<!-- Сообщение -->
+<p id="formMessage" style="display:none; margin-top:15px;"></p>
+
 
     </div>
                    
@@ -828,39 +843,45 @@
             });
         });
     </script>
-   <script>
-const form = document.getElementById('contactForm');
-const message = document.getElementById('formMessage');
+ <script>
+document.addEventListener('DOMContentLoaded', function () {
 
-form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // не перезагружаем страницу
+    const form = document.getElementById('contactForm');
+    const message = document.getElementById('formMessage');
 
-    const formData = new FormData(form);
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-    try {
-        const response = await fetch('https://formspree.io/f/xlgndylr', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch('https://formspree.io/f/xlgndylr', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                message.style.display = 'block';
+                message.style.color = 'green';
+                message.textContent = '✅ Спасибо! Заявка отправлена.';
+                form.reset();
+            } else {
+                const data = await response.json();
+                message.style.display = 'block';
+                message.style.color = 'red';
+                message.textContent = data.error || '❌ Ошибка отправки. Попробуйте позже.';
             }
-        });
-
-        if (response.ok) {
-            message.style.display = 'block';
-            message.textContent = '✅ Спасибо! Заявка отправлена.';
-            form.reset();
-        } else {
+        } catch (error) {
             message.style.display = 'block';
             message.style.color = 'red';
-            message.textContent = '❌ Ошибка отправки. Попробуйте позже.';
+            message.textContent = '❌ Ошибка соединения.';
+            console.error(error);
         }
-    } catch (error) {
-        message.style.display = 'block';
-        message.style.color = 'red';
-        message.textContent = '❌ Ошибка соединения.';
-        console.error(error);
-    }
+    });
+
 });
 </script>
 
