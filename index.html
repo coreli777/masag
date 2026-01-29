@@ -683,34 +683,28 @@
                 
                         <label for="message">Сообщение</label>
                         <textarea id="message" name="message" placeholder="Расскажите о своих пожеланиях..."></textarea>
-                <form action="https://formsubmit.co/andceban@gmail.com" method="POST">
+                <form action="https://formspree.io/f/xlgndylr" method="POST">
 
-        <!-- настройки FormSubmit -->
-            <input type="hidden" name="_next" value="https://coreli777.github.io/masag/">
-        <input type="hidden" name="_subject" value="Новая заявка с сайта">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-
-    <!-- имя -->
-        <div class="form-group">
+    <!-- Имя -->
+    <div class="form-group">
         <label for="name">Ваше имя *</label>
         <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
-         </div>
+    </div>
 
-    <!-- телефон -->
-        <div class="form-group">
+    <!-- Телефон -->
+    <div class="form-group">
         <label for="phone">Телефон *</label>
         <input type="tel" id="phone" name="phone" required placeholder="+1 (555) 123-4567">
-        </div>
+    </div>
 
-    <!-- email -->
-        <div class="form-group">
+    <!-- Email -->
+    <div class="form-group">
         <label for="email">Email *</label>
         <input type="email" id="email" name="email" required placeholder="your@email.com">
-        </div>
+    </div>
 
-    <!-- услуга -->
-         <div class="form-group">
+    <!-- Услуга -->
+    <div class="form-group">
         <label for="service">Интересующая услуга</label>
         <select id="service" name="service">
             <option value="">Выберите услугу</option>
@@ -723,10 +717,14 @@
         </select>
     </div>
 
-    <!-- одна кнопка -->
+    <!-- Редирект после отправки -->
+    <input type="hidden" name="_next" value="https://coreli777.github.io/masag/">
+
+    <!-- Кнопка -->
     <button type="submit" class="submit-btn">Отправить заявку</button>
 
 </form>
+
     </div>
                    
 
