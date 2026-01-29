@@ -534,6 +534,44 @@
                 text-align: center;
             }
         }
+        .massage-item {
+    margin-bottom: 20px;
+}
+
+.massage-title {
+    width: 100%;
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 18px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    color: #7a5a3a;
+}
+
+.massage-title:hover {
+    background: #f6f1ec;
+}
+
+.massage-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #ffffff;
+    border-radius: 0 0 12px 12px;
+    margin-top: -10px;
+    padding: 0 18px;
+}
+
+.massage-content p {
+    padding: 14px 0;
+    color: #444;
+    line-height: 1.6;
+}
+
     </style>
 </head>
 <body>
@@ -724,12 +762,80 @@
         <label for="service">Интересующая услуга</label>
         <select id="service" name="service">
             <option value="">Выберите услугу</option>
-            <option value="Лечебный массаж">Лечебный массаж</option>
-            <option value="Расслабляющий массаж">Расслабляющий массаж</option>
-            <option value="Спортивный массаж">Спортивный массаж</option>
-            <option value="Мануальный лимфодренаж">Мануальный лимфодренаж</option>
-            <option value="Антицеллюлитный массаж">Антицеллюлитный массаж</option>
-            <option value="Массаж лица">Массаж лица</option>
+            <div class="massage-item">
+        <button class="massage-title">
+        ✔ Лечебный массаж
+        </button>
+        <div class="massage-content">
+        <p>
+            Лечебный массаж направлен на снятие болей в спине, шее и мышцах,
+            улучшение кровообращения и восстановление подвижности суставов.
+            Рекомендуется при хроническом напряжении и усталости.
+        </p>
+    </div>
+</div>
+        <div class="massage-item">
+    <button class="massage-title">
+        ✔ Расслабляющий массаж
+    </button>
+    <div class="massage-content">
+        <p>
+            Помогает снять стресс и накопившееся напряжение.
+          Улучшает сон, расслабляет мышцы и способствует общему ощущению покоя и комфорта.
+        </p>
+    </div>
+   </div>
+         
+          <div class="massage-item">
+    <button class="massage-title">
+         ✔Спортивный массаж
+    </button>
+    <div class="massage-content">
+        <p>
+            Ускоряет восстановление мышц после физических нагрузок.
+           Повышает выносливость, улучшает кровообращение и помогает предотвратить травмы.
+        </p>
+    </div>
+    </div>
+       <div class="massage-item">
+    <button class="massage-title">
+        ✔ Мануальный лимфодренаж
+    </button>
+    <div class="massage-content">
+        <p>
+          ✔Способствует выведению лишней жидкости из организма.
+            Уменьшает отёки, улучшает лимфоток и общее самочувствие.
+        </p>
+    </div>
+</div>
+
+        <div class="massage-item">
+    <button class="massage-title">
+        ✔ Антицеллюлитный массаж
+    </button>
+    <div class="massage-content">
+        <p>
+            Помогает уменьшить проявления целлюлита.
+            Улучшает кровообращение и стимулирует обменные процессы в коже.
+        </p>
+    </div>
+</div>
+   
+           <div class="massage-item">
+    <button class="massage-title">
+        ✔ Массаж лица
+    </button>
+    <div class="massage-content">
+        <p>
+            Способствует улучшению тонуса и эластичности кожи лица.
+            Снимает напряжение в мышцах лица, улучшает кровообращение и придаёт коже здоровое сияние.
+        </p>
+    </div>
+</div>
+ 
+          
+         
+           
         </select>
     </div>
 
@@ -883,6 +989,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
+document.querySelectorAll('.massage-title').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
+
+
 </script>
 
 
